@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./front-end.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app-container">
+        <h1>Speed Reader</h1>
+        <textarea class="text-input" name="sentence-input" placeholder="Enter your Japanese sentence here"></textarea>
+        <div class="button-container">
+            <button class="process">Submit Sentence</button>
+            <button class="play">Play</button>
+        </div>
+        <div>Reading area:</div>
+        <div class="sentence-display-area">
+            <div class="sentence-container"></div>
+        </div>
+        <span class="speed-value-display"></span>
+        <div class="speed-control">
+            <input type="range" min="50" max="200" class="speed-control">
+        </div>
+    </div>
+</body>
+</html>
