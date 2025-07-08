@@ -14,7 +14,7 @@
     border: 1px black solid;
     border-radius: 10rem;
     height: 4rem;
-    min-width: 10em;
+    min-width: 15em;
 }
 .sentence-display-area{
     display: flex;

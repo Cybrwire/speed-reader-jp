@@ -13,15 +13,34 @@
         <textarea class="text-input" name="sentence-input" placeholder="Enter your Japanese sentence here"></textarea>
         <div class="button-container">
             <button class="process">Submit Sentence</button>
-            <button class="play">Play</button>
+            
         </div>
         <div>Reading area:</div>
         <div class="sentence-display-area">
             <div class="sentence-container"></div>
         </div>
+        
+        <div class="controls-container">
+            <button class="play">Play</button>
+            <button class="stop">Stop</button>
+        </div>
+        
+
         <span class="speed-value-display"></span>
+
         <div class="speed-control">
-            <input type="range" min="50" max="200" class="speed-control">
+            <input type="range" min="-250" max="-50" step="25" list="steplist">
+            <datalist id="steplist">
+                <option>-250</option>
+                <option>-225</option>
+                <option>-200</option>
+                <option>-175</option>
+                <option>-150</option>
+                <option>-125</option>
+                <option>-100</option>
+                <option>-75</option>
+                <option>-50</option>
+            </datalist>
         </div>
     </div>
 </body>
