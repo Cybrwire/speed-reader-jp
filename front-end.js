@@ -35,7 +35,7 @@ function loadSentence(){
 function showTokensOneByOne() {
     const tokens = document.querySelectorAll('.token');
     let index = 0;
-    
+
     function showNextToken() {
         if (index > 0) {
             tokens[index - 1].classList.add('hidden');
@@ -50,6 +50,15 @@ function showTokensOneByOne() {
         
     }
     showNextToken();
+
+}
+
+function unhideSentence(){
+    //first button press
+        //get the one span that doesn't have hidden class, save it to a variable
+        //remove hidden from all spans in sentence
+    //next button press
+        //add hidden to all spans that aren't the one that was saved to a variable
 }
 
 processButton.addEventListener('click', async () =>{
@@ -61,6 +70,7 @@ processButton.addEventListener('click', async () =>{
 })
 
 playButton.addEventListener('click', () => {
+
     stopButton.addEventListener('click', () => {
         clearTimeout(flickerID);
     })
