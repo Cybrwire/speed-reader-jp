@@ -38,7 +38,9 @@ function loadSentence(){
 function showTokensOneByOne() {
     const tokens = document.querySelectorAll('.token');
     let index = 0;
-
+    tokens.forEach(item => {
+        item.classList.add('hidden');
+    })
     function showNextToken() {
         if (index > 0) {
             tokens[index - 1].classList.add('hidden');
