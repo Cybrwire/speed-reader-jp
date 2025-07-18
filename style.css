@@ -9,7 +9,17 @@
     min-height: 3em;
     min-width: 25vw;
 }
+.reading-area{
+    border: 1px solid black;
+    padding: 2rem;
+}
+.reading-area-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 /* Temporary */
+
 .sentence-display-area,.speed-control{
     border: 1px black solid;
     border-radius: 10rem;
@@ -21,6 +31,11 @@
     justify-content: center;
     flex-direction: column;
     padding: 0 1.5rem;
+}
+.sentence-controls-container{
+    display: flex;
+    gap: 1rem;
+    
 }
 .speed-control{
 
@@ -49,8 +64,10 @@
 .material-symbols-outlined{
     transform: scale(1.7);
 }
-.play, .stop{
+.play, .stop, .reveal-button{
     height: 3rem;
     width: 3rem;
 }
-
+.sentence-display-area{
+    margin-top: .5rem;
+}

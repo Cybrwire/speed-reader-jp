@@ -4,6 +4,9 @@ const processButton = document.querySelector('.process');
 const playButton = document.querySelector('.play');
 const stopButton = document.querySelector('.stop');
 const sentenceDisplay = document.querySelector('.sentence-display-area');
+const revealButton = document.querySelector('.reveal-button');
+let sentenceVisible = false;
+
 let sentenceDisplayControl;
 
 let words = [];
@@ -53,8 +56,10 @@ function showTokensOneByOne() {
 
 }
 
-function unhideSentence(){
+function revealSentence(){
+
     //first button press
+
         //get the one span that doesn't have hidden class, save it to a variable
         //remove hidden from all spans in sentence
     //next button press
@@ -78,3 +83,22 @@ playButton.addEventListener('click', () => {
     
 })
 
+revealButton.addEventListener('click', () => {
+    if(sentenceVisible == false){
+        sentenceVisible = true;
+        console.log('pass')
+        document.querySelectorAll('.sentence-container > .token').forEach(item => { 
+            if(item.classList.contains('hidden')){
+                item.classList.remove('hidden');
+            }
+        })
+    }else{ 
+        sentenceVisible = false;
+        document.querySelectorAll('.sentence-container > .token').forEach(item => { 
+            if(!item.classList.contains('hidden')){
+                item.classList.add('hidden');
+            }
+        })
+    }
+
+})
