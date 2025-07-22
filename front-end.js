@@ -83,10 +83,18 @@ processButton.addEventListener('click', async () =>{
 
 playButton.addEventListener('click', () => {
     playButton.disabled = true;
+    revealButton.disabled = true;
     stopButton.addEventListener('click', () => {
         if(playButton.disabled){
             playButton.disabled = false;
+            revealButton.disabled = false;
+            
         }
+        document.querySelectorAll('.sentence-container > .token').forEach(item => { 
+            if(!item.classList.contains('hidden')){
+                item.classList.add('hidden');
+            }
+        })
         clearTimeout(flickerID);
     })
     showTokensOneByOne();
