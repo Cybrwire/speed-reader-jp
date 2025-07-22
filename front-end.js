@@ -71,16 +71,7 @@ function showTokensOneByOne() {
 
 }
 
-function revealSentence(){
-
-    //first button press
-
-        //get the one span that doesn't have hidden class, save it to a variable
-        //remove hidden from all spans in sentence
-    //next button press
-        //add hidden to all spans that aren't the one that was saved to a variable
-}
-
+//loads sentence from input field into sentence display container
 processButton.addEventListener('click', async () =>{
     const text = textInput.value;
     words = await fetchTokenizedText(text);
@@ -89,6 +80,7 @@ processButton.addEventListener('click', async () =>{
 
 })
 
+//begins sentence display playback
 playButton.addEventListener('click', () => {
     playButton.disabled = true;
     revealButton.disabled = true;
@@ -109,6 +101,7 @@ playButton.addEventListener('click', () => {
 
 })
 
+//toggle button to display or hide entire text in sentence container
 revealButton.addEventListener('click', () => {
     if(sentenceVisible == false){
         sentenceVisible = true;
