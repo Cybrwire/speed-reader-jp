@@ -51,6 +51,11 @@ function showTokensOneByOne() {
             const delay = Math.abs(parseInt(speedControl.value));
             flickerID = setTimeout(showNextToken, delay); // Adjust the delay as needed
 
+        }else {
+            // All tokens shown, re-enable playButton if disabled
+            if (playButton.disabled) {
+                playButton.disabled = false;
+            }
         }
         
     }
@@ -77,12 +82,15 @@ processButton.addEventListener('click', async () =>{
 })
 
 playButton.addEventListener('click', () => {
-
+    playButton.disabled = true;
     stopButton.addEventListener('click', () => {
+        if(playButton.disabled){
+            playButton.disabled = false;
+        }
         clearTimeout(flickerID);
     })
     showTokensOneByOne();
-    
+
 })
 
 revealButton.addEventListener('click', () => {
