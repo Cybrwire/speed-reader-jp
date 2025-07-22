@@ -33,6 +33,14 @@ function loadSentence(){
         token.classList.add('token', 'hidden');
         sentenceContainer.appendChild(token);
     })
+    if(sentenceContainer.offsetHeight > 80){
+        sentenceDisplay.style.borderRadius = '2rem';
+        sentenceDisplay.style.padding = '1rem';
+
+    }else{
+        sentenceDisplay.style.borderRadius = '';
+        sentenceDisplay.style.padding = '';
+    }
     
 }
 function showTokensOneByOne() {

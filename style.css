@@ -20,9 +20,9 @@
 }
 /* Temporary */
 
-.sentence-display-area,.speed-control{
+.speed-control{
     border: 1px black solid;
-    border-radius: 10rem;
+    border-radius: 2rem;
     height: 4rem;
     min-width: 15em;
 }
@@ -31,6 +31,12 @@
     justify-content: center;
     flex-direction: column;
     padding: 0 1.5rem;
+    height: fit-content;
+    min-height: 4rem;
+    min-width: 15em;
+    border: 1px black solid;
+    border-radius: 10rem;
+    
 }
 .sentence-controls-container{
     display: flex;
