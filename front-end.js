@@ -11,6 +11,7 @@ let sentenceDisplayControl;
 
 let words = [];
 
+
 async function fetchTokenizedText(text) {
     const response = await fetch('http://127.0.0.1:8080/api/tokenize', {
         method: 'POST',
@@ -85,11 +86,12 @@ processButton.addEventListener('click', async () =>{
 playButton.addEventListener('click', () => {
     playButton.disabled = true;
     revealButton.disabled = true;
+    stopButton.disabled = false;
     stopButton.addEventListener('click', () => {
         if(playButton.disabled){
             playButton.disabled = false;
             revealButton.disabled = false;
-            
+            stopButton.disabled = true;
         }
         document.querySelectorAll('.sentence-container > .token').forEach(item => { 
             if(!item.classList.contains('hidden')){
