@@ -63,6 +63,7 @@ function showTokensOneByOne() {
             // All tokens shown, re-enable playButton if disabled
             if (playButton.disabled) {
                 playButton.disabled = false;
+                revealButton.disabled = false;
             }
         }
         
