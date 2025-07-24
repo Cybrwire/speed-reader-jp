@@ -21,10 +21,30 @@
 /* Temporary */
 
 .speed-control{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    padding: 0.7rem 1rem;
     border: 1px black solid;
     border-radius: 2rem;
-    height: 4rem;
     min-width: 15em;
+    
+    & > input{
+        margin: 0 0.3rem;
+    }
+    &::before{
+        position: absolute;
+        content: "SLOW";
+        left: 2%;
+        height: 1rem;
+    }
+    &::after{
+        position: absolute;
+        content: "FAST";
+        right: 2%;
+        height: 1rem;
+    }
 }
 .sentence-display-area{
     display: flex;
@@ -43,18 +63,7 @@
     gap: 1rem;
     
 }
-.speed-control{
 
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 1.5rem;
-    &::before{
-        content: "";
-        display: block;
-        height: 1rem;
-    }
-}
 
 .hidden{
     visibility: hidden;
