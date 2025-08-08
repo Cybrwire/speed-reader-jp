@@ -5,6 +5,7 @@ const tokenizeText = (text, onTokenizeComplete) => {
     kuromoji.builder({dicPath:'node_modules/kuromoji/dict/'}).build((err,tokenizer) => {
         const tokens = tokenizer.tokenize(text).map(token => token.surface_form);
         onTokenizeComplete(tokens);
+        
     })
 };
 
