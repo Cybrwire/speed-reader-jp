@@ -34,6 +34,7 @@ function loadSentence(){
         token.classList.add('token', 'hidden');
         sentenceContainer.appendChild(token);
     })
+    //adjust sentence display styling for longer sentences
     if(sentenceContainer.offsetHeight > 80){
         sentenceDisplay.style.borderRadius = '2rem';
         sentenceDisplay.style.padding = '1rem';
@@ -77,7 +78,6 @@ function showTokensOneByOne() {
 processButton.addEventListener('click', async () =>{
     const text = textInput.value;
     words = await fetchTokenizedText(text);
-    console.log(words)
     loadSentence();
 
 })

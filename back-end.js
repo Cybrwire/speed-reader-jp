@@ -1,13 +1,30 @@
 const http = require('http');
 const kuromoji = require('kuromoji');
+const verbPhraseEndings = ['た','','','','','','','','','','','','']
 
 const tokenizeText = (text, onTokenizeComplete) => {
-    kuromoji.builder({dicPath:'node_modules/kuromoji/dict/'}).build((err,tokenizer) => {
-        const tokens = tokenizer.tokenize(text).map(token => token.surface_form);
-        onTokenizeComplete(tokens);
-        
+    kuromoji.builder({dicPath:'node_modules/kuromoji/dict/'}).build((err,tokenizer) => {  
+      const tokens = tokenizer.tokenize(text).map((token, i) => {
+
+        if(token.pos == "動詞" && token.pos_detail_1 == "自立"){
+          while(){
+
+          }
+        }
+        else {
+          return token.surface_form
+        }
+
+      }
+      );
+
+      onTokenizeComplete(tokens);
     })
 };
+
+function keepVerbsTogether(){
+
+}
 
 const server = http.createServer((req, res) => {
 
@@ -16,7 +33,8 @@ const server = http.createServer((req, res) => {
       
       let body = '';
       req.on('data', chunk => (body += chunk));
-
+      
+      
       req.on('end', () => {
         try {
           const { text } = JSON.parse(body); // Parse the JSON body
