@@ -4,9 +4,11 @@ const processButton = document.querySelector('.process');
 const playButton = document.querySelector('.play');
 const stopButton = document.querySelector('.stop');
 const sentenceDisplay = document.querySelector('.sentence-display-area');
+const sentenceContainer = document.querySelector('.sentence-container');
 const revealButton = document.querySelector('.reveal-button');
+const readModeButton = document.querySelector('.read-mode-button');
 let sentenceVisible = false;
-
+let sentenceLoaded = false;
 let sentenceDisplayControl;
 
 let words = [];
@@ -25,7 +27,6 @@ async function fetchTokenizedText(text) {
 
 function loadSentence(){
     // Clear previous sentence
-    let sentenceContainer = document.querySelector('.sentence-container');
     sentenceContainer.innerHTML = '';
 
     words.forEach(word => {
@@ -34,8 +35,14 @@ function loadSentence(){
         token.classList.add('token', 'hidden');
         sentenceContainer.appendChild(token);
     })
+    if(sentenceDisplay.classList.contains('read-vertical')){
+        sentenceDisplay.scrollIntoView(alignToTop);
+    }
+    document.querySelector('.sentence-container > .token').classList.remove('hidden');
+    document.querySelector('.sentence-container > .token').classList.add('first-token');
+
     //adjust sentence display styling for longer sentences
-    if(sentenceContainer.offsetHeight > 80){
+    if(sentenceContainer.offsetHeight > 80){ //move to read-horizontal-long css class
         sentenceDisplay.style.borderRadius = '2rem';
         sentenceDisplay.style.padding = '1rem';
 
@@ -43,7 +50,7 @@ function loadSentence(){
         sentenceDisplay.style.borderRadius = '';
         sentenceDisplay.style.padding = '';
     }
-    
+    sentenceLoaded = true;
 }
 function showTokensOneByOne() {
     const tokens = document.querySelectorAll('.token');
@@ -73,17 +80,29 @@ function showTokensOneByOne() {
     showNextToken();
 
 }
+function switchReadMode(){ //horizontal or vertical
+    sentenceDisplay.classList.toggle("read-horizontal");
+    sentenceDisplay.classList.toggle("read-vertical");
+    if(sentenceLoaded){
+        sentenceDisplay.scrollIntoView({
+            behavior: 'smooth', // Optional: for smooth scrolling animation
+            block: 'center',    // Aligns the element vertically in the center
+        });
+    }
+}
+readModeButton.addEventListener('click', switchReadMode);
 
 //loads sentence from input field into sentence display container
 processButton.addEventListener('click', async () =>{
     const text = textInput.value;
     words = await fetchTokenizedText(text);
     loadSentence();
-
 })
 
 //begins sentence display playback
 playButton.addEventListener('click', () => {
+    document.querySelector('.sentence-container > .token').classList.remove('first-token');
+
     playButton.disabled = true;
     revealButton.disabled = true;
     stopButton.disabled = false;

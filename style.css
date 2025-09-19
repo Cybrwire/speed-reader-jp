@@ -1,3 +1,10 @@
+h1{
+    text-shadow: 3px 5px 5px rgb(218, 107, 92);
+}
+.first-token{
+    text-shadow: 3px 5px 5px rgb(218, 107, 92);
+    visibility: visible;
+}
 .app-container{
     display: flex;
     flex-direction: column;
@@ -11,12 +18,21 @@
 }
 .reading-area{
     border: 1px solid black;
-    padding: 2rem;
+    padding: 1rem;
 }
 .reading-area-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.read-horizontal{}
+.read-horizontal-long{
+    
+}
+
+.read-vertical{
+    writing-mode: vertical-rl;
+    text-orientation: upright;  
 }
 /* Temporary */
 
