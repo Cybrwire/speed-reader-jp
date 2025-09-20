@@ -1,10 +1,13 @@
 const textInput = document.querySelector('.text-input');
-const speedControl = document.querySelector('.speed-control > input');
+const speedControlContainer = document.querySelector('.speed-control-container');
+const speedControlDial = document.querySelector('.speed-control > input');
 const processButton = document.querySelector('.process');
 const playButton = document.querySelector('.play');
 const stopButton = document.querySelector('.stop');
 const sentenceDisplay = document.querySelector('.sentence-display-area');
+const readingArea = document.querySelector('.reading-area');
 const sentenceContainer = document.querySelector('.sentence-container');
+const sentenceControls = document.querySelector('.sentence-controls-container');
 const revealButton = document.querySelector('.reveal-button');
 const readModeButton = document.querySelector('.read-mode-button');
 let sentenceVisible = false;
@@ -83,6 +86,16 @@ function showTokensOneByOne() {
 function switchReadMode(){ //horizontal or vertical
     sentenceDisplay.classList.toggle("read-horizontal");
     sentenceDisplay.classList.toggle("read-vertical");
+
+    if(sentenceDisplay.classList.contains("read-vertical")){
+        let vertMidPageContainer = document.createElement('div');   
+        vertMidPageContainer.appendChild(sentenceControls);
+        vertMidPageContainer.appendChild(speedControlContainer);
+        readingArea.after(vertMidPageContainer);
+        vertMidPageContainer.style.display = 'flex';
+    }else{
+        
+    }
     if(sentenceLoaded){
         sentenceDisplay.scrollIntoView({
             behavior: 'smooth', // Optional: for smooth scrolling animation
